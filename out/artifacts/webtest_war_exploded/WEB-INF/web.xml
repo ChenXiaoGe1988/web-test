@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <!--为MyServlet配一个名字-->
+        <servlet-name>Demo1</servlet-name>
+        <!--类的存放位置【如果有包名，要加上包名】-->
+        <servlet-class>Demo1</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>ckb</param-value>
+        </init-param>
+        <!--如果在<servlet>元素中配置了一个<load-on-startup>元素，
+        那么WEB应用程序在启动时，就会装载并创建Servlet的实例对象、
+        以及调用Servlet实例对象的init()方法。-->
+        <!--<load-on-startup>1</load-on-startup>-->
+        <!--
+        load-on-startup的作用？
+            1.为web应用写一个InitServlet，这个servlet配置为启动时装载，为整个web应用创建必要的数据库表和数据
+            2.完成一些定时的任务【定时写日志，定时备份数据】
+        -->
+    </servlet>
+    <servlet>
+        <servlet-name>Demo2</servlet-name>
+        <servlet-class>Demo2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Demo2</servlet-name>
+        <url-pattern>/Demo2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Demo3</servlet-name>
+        <servlet-class>Demo3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Demo3</servlet-name>
+        <url-pattern>/Demo3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet111</servlet-name>
+        <servlet-class>Servlet111</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet111</servlet-name>
+        <url-pattern>/Servlet111</url-pattern>
+    </servlet-mapping>
+
+
+    <!--配置Demo1的映射路径-->
+    <servlet-mapping>
+        <servlet-name>Demo1</servlet-name>
+        <url-pattern>/Demo1</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>CodeChen</param-value>
+    </context-param>
+</web-app>
