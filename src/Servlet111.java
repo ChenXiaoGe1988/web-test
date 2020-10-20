@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -7,10 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.zip.GZIPOutputStream;
@@ -165,47 +163,79 @@ public class Servlet111 extends HttpServlet {
 //        resp.getWriter().write("你看个der！！！");
 
 
-//        /**
-//         * 表单提交数据
-//         *
-//         */
-//        //设置request字符编码的格式
-//        req.setCharacterEncoding("UTF-8");
-//        //通过html的属性 获取到值
-//        String username = req.getParameter("username");
-//        String password = req.getParameter("password");
-//        String gender = req.getParameter("gender");
-//
-//        //复选框和下拉框有多个值，获取到多个值
-//        String[] hobbies = req.getParameterValues("hobbies");
-//        String[] address = req.getParameterValues("address");
-//
-//        //获取到文本域的值
-//        String description = req.getParameter("textarea");
-//        //得到隐藏域的值
-//        String hiddenValue = req.getParameter("aaa");
-//        System.out.println("用户名：" + username);
-//        System.out.println("密码：" + password);
-//        System.out.println("性别：" + gender);
-//        System.out.println("爱好：" + Arrays.toString(hobbies));
-//        System.out.println("来自于：" + Arrays.toString(address));
-//        System.out.println("详细说明：" + description);
-//        System.out.println("隐藏域的值：" + hiddenValue);
-//        /**OutInput
-//         * 用户名：ychen
-//         * 密码：123456
-//         * 性别：on
-//         * 爱好：[柳活]
-//         * 来自于：[长沙]
-//         * 表单测试说明
-//         * my name is ychen
-//         */
+        /**
+         * 表单提交数据
+         * 1.获取页面元素的值的几种方法
+         * req.getParameter()返回客户端的请求参数的值
+         * req.getParameterValues() 返回包含参数的所有值的数组
+         * req.getParameterNames() 返回所有可用属性名的枚举
+         */
+        //设置request字符编码的格式
+        req.setCharacterEncoding("UTF-8");
+        //通过html的属性 获取到值
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        String gender = req.getParameter("gender");
+
+        //复选框和下拉框有多个值，获取到多个值
+        String[] hobbies = req.getParameterValues("hobbies");
+        String[] address = req.getParameterValues("address");
+
+        //获取到文本域的值
+        String description = req.getParameter("textarea");
+        //得到隐藏域的值
+        String hiddenValue = req.getParameter("aaa");
+        System.out.println("用户名：" + username);
+        System.out.println("密码：" + password);
+        System.out.println("性别：" + gender);
+        System.out.println("爱好：" + Arrays.toString(hobbies));
+        System.out.println("来自于：" + Arrays.toString(address));
+        System.out.println("详细说明：" + description);
+        System.out.println("隐藏域的值：" + hiddenValue);
+        /**OutInput
+         * 用户名：ychen
+         * 密码：123456
+         * 性别：on
+         * 爱好：[柳活]
+         * 来自于：[长沙]
+         * 表单测试说明
+         * my name is ychen
+         */
 
         /**
          * 超链接方式提交数据
          */
 //        String username = req.getParameter("username");
-//        System.out.println(username); //xxx
+//        System.out.println(username);
+
+        /**
+         * 实现转发
+         */
+        //获取到requestDispatcher对象，跳转到index.jsp
+        //RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+        //调用requestDispatcher对象的forward()方法，传入request,response方法
+        //requestDispatcher.forward(req, resp);
+
+
+        //以username为关键字存CodeChen值
+        //req.setAttribute("username","CodeChen");
+        //获取到requestDispatcher对象
+        //RequestDispatcher requestDispatcher = req.getRequestDispatcher("/Servlet222");
+        // 调用requestDispatcher对象的forward()实现转发,传入request和response方法
+        //requestDispatcher.forward(req,resp);
+
+
+        /**
+         * 请求转发的细节
+         * 如果在调用forward方法之前，在Servlet程序中写入的部分内容已经被真正地传送到了客户端，
+         * forward方法将抛出IllegalStateException异常。 也就是说：不要在转发之前写数据给浏览器
+         */
+//        OutputStream outputStream = resp.getOutputStream();
+//        outputStream.write("-------------------".getBytes());
+//        //关闭流
+//        outputStream.close();
+//        //跳转
+//        req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 
     @Override

@@ -50,6 +50,15 @@
         <url-pattern>/Servlet111</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet222</servlet-name>
+        <servlet-class>Servlet222</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet222</servlet-name>
+        <url-pattern>/Servlet222</url-pattern>
+    </servlet-mapping>
+
 
     <!--配置Demo1的映射路径-->
     <servlet-mapping>
