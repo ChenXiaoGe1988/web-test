@@ -16,10 +16,10 @@ public class Servlet222 extends HttpServlet {
          *  req.getAttribute()可以获取Objcet对象
          *  req.getParameter()只能获取字符串(这也是为什么它一般用于获取客户端提交的参数)
          */
-        //获取到存进request对象的值
-        String username = (String) req.getAttribute("username");
-        //浏览器输出
-        resp.getWriter().write("i am : " + username); // i am : CodeChen
+//        //获取到存进request对象的值
+//        String username = (String) req.getAttribute("username");
+//        //浏览器输出
+//        resp.getWriter().write("i am : " + username); // i am : CodeChen
     }
 
     @Override

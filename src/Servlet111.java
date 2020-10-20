@@ -170,37 +170,37 @@ public class Servlet111 extends HttpServlet {
          * req.getParameterValues() 返回包含参数的所有值的数组
          * req.getParameterNames() 返回所有可用属性名的枚举
          */
-        //设置request字符编码的格式
-        req.setCharacterEncoding("UTF-8");
-        //通过html的属性 获取到值
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String gender = req.getParameter("gender");
-
-        //复选框和下拉框有多个值，获取到多个值
-        String[] hobbies = req.getParameterValues("hobbies");
-        String[] address = req.getParameterValues("address");
-
-        //获取到文本域的值
-        String description = req.getParameter("textarea");
-        //得到隐藏域的值
-        String hiddenValue = req.getParameter("aaa");
-        System.out.println("用户名：" + username);
-        System.out.println("密码：" + password);
-        System.out.println("性别：" + gender);
-        System.out.println("爱好：" + Arrays.toString(hobbies));
-        System.out.println("来自于：" + Arrays.toString(address));
-        System.out.println("详细说明：" + description);
-        System.out.println("隐藏域的值：" + hiddenValue);
-        /**OutInput
-         * 用户名：ychen
-         * 密码：123456
-         * 性别：on
-         * 爱好：[柳活]
-         * 来自于：[长沙]
-         * 表单测试说明
-         * my name is ychen
-         */
+//        //设置request字符编码的格式
+//        req.setCharacterEncoding("UTF-8");
+//        //通过html的属性 获取到值
+//        String username = req.getParameter("username");
+//        String password = req.getParameter("password");
+//        String gender = req.getParameter("gender");
+//
+//        //复选框和下拉框有多个值，获取到多个值
+//        String[] hobbies = req.getParameterValues("hobbies");
+//        String[] address = req.getParameterValues("address");
+//
+//        //获取到文本域的值
+//        String description = req.getParameter("textarea");
+//        //得到隐藏域的值
+//        String hiddenValue = req.getParameter("aaa");
+//        System.out.println("用户名：" + username);
+//        System.out.println("密码：" + password);
+//        System.out.println("性别：" + gender);
+//        System.out.println("爱好：" + Arrays.toString(hobbies));
+//        System.out.println("来自于：" + Arrays.toString(address));
+//        System.out.println("详细说明：" + description);
+//        System.out.println("隐藏域的值：" + hiddenValue);
+//        /**OutInput
+//         * 用户名：ychen
+//         * 密码：123456
+//         * 性别：on
+//         * 爱好：[柳活]
+//         * 来自于：[长沙]
+//         * 表单测试说明
+//         * my name is ychen
+//         */
 
         /**
          * 超链接方式提交数据
